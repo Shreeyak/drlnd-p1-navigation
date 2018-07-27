@@ -11784,7 +11784,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">unityagents</span> <span class="k">import</span> <span class="n">UnityEnvironment</span>
@@ -11819,7 +11819,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">UnityEnvironment</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s2">&quot;Banana_Linux/Banana.x86_64&quot;</span><span class="p">)</span>
@@ -11839,24 +11839,22 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>ERROR:root:Exception calling application: Ran out of input
-Traceback (most recent call last):
-  File &#34;/home/shrek/anaconda3/envs/drlnd/lib/python3.6/site-packages/grpc/_server.py&#34;, line 385, in _call_behavior
-    return behavior(argument, context), True
-  File &#34;/home/shrek/anaconda3/envs/drlnd/lib/python3.6/site-packages/unityagents/rpc_communicator.py&#34;, line 26, in Exchange
-    return self.child_conn.recv()
-  File &#34;/home/shrek/anaconda3/envs/drlnd/lib/python3.6/multiprocessing/connection.py&#34;, line 251, in recv
-    return _ForkingPickler.loads(buf.getbuffer())
-EOFError: Ran out of input
-ERROR:root:Exception calling application: could not find MARK
-Traceback (most recent call last):
-  File &#34;/home/shrek/anaconda3/envs/drlnd/lib/python3.6/site-packages/grpc/_server.py&#34;, line 385, in _call_behavior
-    return behavior(argument, context), True
-  File &#34;/home/shrek/anaconda3/envs/drlnd/lib/python3.6/site-packages/unityagents/rpc_communicator.py&#34;, line 26, in Exchange
-    return self.child_conn.recv()
-  File &#34;/home/shrek/anaconda3/envs/drlnd/lib/python3.6/multiprocessing/connection.py&#34;, line 251, in recv
-    return _ForkingPickler.loads(buf.getbuffer())
-_pickle.UnpicklingError: could not find MARK
+<pre>INFO:unityagents:
+&#39;Academy&#39; started successfully!
+Unity Academy name: Academy
+        Number of Brains: 1
+        Number of External Brains : 1
+        Lesson number : 0
+        Reset Parameters :
+		
+Unity brain name: BananaBrain
+        Number of Visual Observations (per agent): 0
+        Vector Observation space type: continuous
+        Vector Observation space size (per agent): 37
+        Number of stacked Vector Observation: 1
+        Vector Action space type: discrete
+        Vector Action space size (per agent): 4
+        Vector Action descriptions: , , , 
 </pre>
 </div>
 </div>
@@ -11876,7 +11874,7 @@ _pickle.UnpicklingError: could not find MARK
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get the default brain</span>
@@ -12050,7 +12048,7 @@ UPDATE_EVERY = 4        # how often to update the network</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">unityagents</span> <span class="k">import</span> <span class="n">UnityEnvironment</span>
@@ -12238,6 +12236,8 @@ Environment solved in 1259 episodes!	Average Score: 15.03
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load the weights from file</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">state_size</span><span class="o">=</span><span class="mi">37</span><span class="p">,</span> <span class="n">action_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
 <span class="n">agent</span><span class="o">.</span><span class="n">qnetwork_local</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;checkpoint.pth&#39;</span><span class="p">))</span>
 
 <span class="n">env_info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="n">train_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">brain_name</span><span class="p">]</span> <span class="c1"># reset the environment</span>
@@ -12272,18 +12272,9 @@ Environment solved in 1259 episodes!	Average Score: 15.03
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-2-4c1765ef4e2c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># load the weights from file</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>agent<span class="ansi-blue-fg">.</span>qnetwork_local<span class="ansi-blue-fg">.</span>load_state_dict<span class="ansi-blue-fg">(</span>torch<span class="ansi-blue-fg">.</span>load<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;checkpoint.pth&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> 
-<span class="ansi-green-intense-fg ansi-bold">      4</span> env_info <span class="ansi-blue-fg">=</span> env<span class="ansi-blue-fg">.</span>reset<span class="ansi-blue-fg">(</span>train_mode<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span>brain_name<span class="ansi-blue-fg">]</span> <span class="ansi-red-fg"># reset the environment</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> state <span class="ansi-blue-fg">=</span> env_info<span class="ansi-blue-fg">.</span>vector_observations<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>            <span class="ansi-red-fg"># get the current state</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;agent&#39; is not defined</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Score: 19.0
+</pre>
 </div>
 </div>
 
